@@ -14,6 +14,7 @@ vim.opt.undofile = true;
 vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
 vim.o.winborder = 'single'
+vim.cmd('colorscheme blue')
 vim.cmd(":hi statusline guibg=NONE")
 
 local augroup = vim.api.nvim_create_augroup("UserConfig", {})
