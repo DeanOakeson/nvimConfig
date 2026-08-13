@@ -8,13 +8,13 @@ vim.opt.termguicolors = true
 vim.opt.cursorlineopt = 'number'
 vim.opt.cursorline = true
 vim.opt.mouse = "n"
-vim.opt.spellsuggest = { "best", 10 }
+vim.opt.spellsuggest = "best,10"
 vim.opt.scrolloff = 3
 vim.opt.undofile = true;
 vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
-vim.o.winborder = 'single'
-vim.cmd('colorscheme blue')
+-- vim.o.winborder = 'single'
+vim.cmd('colorscheme darkblue')
 vim.cmd(":hi statusline guibg=NONE")
 
 local augroup = vim.api.nvim_create_augroup("UserConfig", {})

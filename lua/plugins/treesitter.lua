@@ -1,30 +1,23 @@
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
-require('nvim-treesitter.configs').setup({
-    auto_install = false,
-    ensure_installed = {
-        "nix",
-        "vim",
-        "bash",
-        "lua",
-        "python",
-        "rust",
-        "json",
-        "c",
-        "cpp",
-        "markdown",
-        "java",
-        "html",
-    },
 
-    highlight = {
-        enable = true
-    },
+-- Parser install location (only needed if you want a non-default path)
+require('nvim-treesitter').setup({
+    install_dir = vim.fn.stdpath('data') .. '/site',
+})
 
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            node_incremental = "v",
-            node_decremental = "V",
-        }
-    }
+-- Replaces ensure_installed — install explicitly (async by default)
+require('nvim-treesitter').install({
+    "nix", "vim", "bash", "lua", "python", "rust",
+    "json", "c", "cpp", "markdown", "java", "html",
+})
+
+-- Replaces highlight.enable = true
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {
+        "nix", "vim", "bash", "lua", "python", "rust",
+        "json", "c", "cpp", "markdown", "java", "html",
+    },
+    callback = function()
+        vim.treesitter.start()
+    end,
 })
