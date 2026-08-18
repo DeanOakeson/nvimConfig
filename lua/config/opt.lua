@@ -13,10 +13,14 @@ vim.opt.scrolloff = 3
 vim.opt.undofile = true;
 vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
--- vim.o.winborder = 'single'
+vim.opt.title = true
+vim.opt.titlestring = "%f"
+vim.o.winborder = 'single'
+vim.opt.laststatus = 1
+vim.opt.statusline = "%F %m %r %= %y %p%% Line:%l/%L"
+
 vim.cmd('colorscheme darkblue')
 vim.cmd(":hi statusline guibg=NONE")
-
 local augroup = vim.api.nvim_create_augroup("UserConfig", {})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
